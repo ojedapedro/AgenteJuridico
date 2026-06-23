@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-slate-950 text-slate-100 selection:bg-court-600 selection:text-slate-950;
+  }
+}
+
+/* Clases de Estilo de Diseño Premium (Glassmorphism & Glows) */
+.glass-panel {
+  background: rgba(28, 37, 65, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.glass-panel-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-panel-hover:hover {
+  background: rgba(28, 37, 65, 0.6);
+  border-color: rgba(91, 192, 190, 0.3);
+  box-shadow: 0 10px 30px -10px rgba(91, 192, 190, 0.15);
+  transform: translateY(-2px);
+}
+
+/* Efectos de brillo de oro premium */
+.gold-glow {
+  text-shadow: 0 0 10px rgba(197, 168, 128, 0.3);
+}
+
+.gold-border-focus:focus {
+  border-color: #C5A880;
+  box-shadow: 0 0 0 2px rgba(197, 168, 128, 0.2);
+}
+
+/* Scrollbar personalizado */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0B132B;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1C2541;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3A506B;
+}
+
+/* Animaciones y Efectos de Carga */
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.6;
+    box-shadow: 0 0 15px rgba(91, 192, 190, 0.2);
+  }
+  50% {
+    opacity: 1;
+    box-shadow: 0 0 25px rgba(91, 192, 190, 0.5);
+  }
+}
+
+.glow-active {
+  animation: pulseGlow 2s infinite ease-in-out;
+}
+
+/* Efecto de fondo degradado animado */
+.animated-bg {
+  background: radial-gradient(circle at 50% 50%, #1a233d 0%, #0b0f19 100%);
+  background-size: 200% 200%;
+  animation: bgShift 15s ease infinite;
+}
+
+@keyframes bgShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}

@@ -20,13 +20,7 @@ export default function App() {
     const savedUser = localStorage.getItem('logged_user');
     const token = localStorage.getItem('jwt_token');
     if (savedUser && token) {
-      try {
-        const parsed = JSON.parse(savedUser);
-        if (parsed) setUser(parsed);
-      } catch(e) {
-        localStorage.removeItem('logged_user');
-        localStorage.removeItem('jwt_token');
-      }
+      setUser(JSON.parse(savedUser));
     }
   }, []);
 
@@ -69,7 +63,7 @@ export default function App() {
       };
 
       const matchedUser = demoUsers[email.trim().toLowerCase()];
-      if (matchedUser && (password === 'admin123' || password === 'abogado123' || password === 'cliente123')) {
+      if (matchedUser && password === 'admin123' || password === 'abogado123' || password === 'cliente123') {
         const fakeToken = 'fake-jwt-token-for-demo';
         localStorage.setItem('jwt_token', fakeToken);
         localStorage.setItem('logged_user', JSON.stringify(matchedUser));

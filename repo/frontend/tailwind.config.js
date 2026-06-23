@@ -1,6 +1,4 @@
 /** @type {import('tailwindcss').Config} */
-import colors from 'tailwindcss/colors';
-
 export default {
   content: [
     "./index.html",
@@ -9,8 +7,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Elementos base de la paleta legal
-        slate: colors.slate,
+        // Paleta de colores jurídicos premium (Azules oscuros, dorados y grises)
         court: {
           950: '#0B132B',
           900: '#1C2541',
@@ -19,7 +16,7 @@ export default {
           400: '#6FFFE9',
           gold: '#C5A880',
           'gold-light': '#E5D5C0',
-        },
+        }
       },
       fontFamily: {
         serif: ['Merriweather', 'serif'],

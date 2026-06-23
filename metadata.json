@@ -1,0 +1,6 @@
+{
+  "name": "Agente Jurídico",
+  "description": "Biblioteca virtual cifrada para el almacenamiento, consulta y gestión de documentos legales.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

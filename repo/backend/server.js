@@ -7,28 +7,6 @@ const fs = require('fs');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const { Pool } = require('pg');
-const { GoogleGenAI } = require('@google/genai');
-
-let aiClient = null;
-
-function getAiClient() {
-  if (!aiClient) {
-    const key = process.env.GEMINI_API_KEY;
-    if (!key) {
-      throw new Error('GEMINI_API_KEY environment variable is required');
-    }
-    aiClient = new GoogleGenAI({
-      apiKey: key,
-      httpOptions: {
-        headers: {
-          'User-Agent': 'aistudio-build',
-        }
-      }
-    });
-  }
-  return aiClient;
-}
-
 
 const { 
   encryptFile, 
@@ -46,12 +24,6 @@ const PORT = process.env.PORT || 5000;
 
 app.use(cors());
 app.use(express.json());
-
-// Servir estáticos en producción
-const frontendDist = path.join(__dirname, '..', 'frontend', 'dist');
-if (fs.existsSync(frontendDist)) {
-  app.use(express.static(frontendDist));
-}
 
 // Directorio para almacenamiento cifrado de archivos
 const UPLOADS_DIR = path.join(__dirname, 'uploads');
@@ -603,48 +575,13 @@ app.get('/api/files/secure-download', async (req, res) => {
   }
 });
 
-// ==========================================
-// ENDPOINT: Asistente Legal con IA y Search Grounding
-// ==========================================
-app.post('/api/ask', authenticateToken, async (req, res) => {
-  const { prompt } = req.body;
-  if (!prompt) {
-    return res.status(400).json({ error: 'Se requiere un prompt para el asistente.' });
-  }
-
-  try {
-    const aiClient = getAiClient();
-    const response = await aiClient.models.generateContent({
-      model: "gemini-3.5-flash",
-      contents: prompt,
-      config: {
-        tools: [{ googleSearch: {} }]
-      }
-    });
-
-    res.json({ answer: response.text });
-  } catch (err) {
-    console.error('Error con Gemini API:', err);
-    res.status(500).json({ error: 'Error procesando la respuesta del asistente.', details: err.message });
-  }
-});
-
 // Middleware de manejo de errores global
 app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).json({ error: 'Algo salió mal en el servidor backend.', details: err.message });
 });
 
-// SPA Fallback para React (Si existe la carpeta dist)
-app.get('*', (req, res) => {
-  if (fs.existsSync(frontendDist)) {
-    res.sendFile(path.join(frontendDist, 'index.html'));
-  } else {
-    res.status(404).send('Servidor Backend operando, pero la UI no ha sido compilada aún.');
-  }
-});
-
 // Iniciar servidor
-app.listen(PORT, '0.0.0.0', () => {
-  console.log(`🚀 Servidor de la Biblioteca Jurídica ejecutándose en http://0.0.0.0:${PORT}`);
+app.listen(PORT, () => {
+  console.log(`🚀 Servidor de la Biblioteca Jurídica ejecutándose en http://localhost:${PORT}`);
 });

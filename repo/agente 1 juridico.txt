@@ -1,0 +1,15 @@
+agente 1
+
+Actúa como un Arquitecto de Software Senior y Experto en Derecho Tecnológico. Diseña la arquitectura de una aplicación web para una biblioteca de documentos jurídicos. La base de datos debe ser PostgreSQL. Genera el script SQL de las tablas incluyendo: usuarios (roles: administrador, abogado, cliente), documentos (con campos para título, descripción, URL de almacenamiento, fecha de publicación), y categorias (Leyes, Sentencias, Contratos, Jurisprudencia, Decretos). Incluye una tabla intermedia para etiquetas (tags) y asegura relaciones con claves foráneas y un campo status para borrado lógico.
+
+agent 2
+
+Actúa como un Desarrollador Backend Senior usando Node.js con Express.js. Escribe el código para los endpoints de una API REST que gestione los documentos jurídicos. Requiero las siguientes rutas protegidas por JWT:POST /api/documents/upload utilizando Multer para cargar archivos PDF a un almacenamiento local o firebase, guardando la metadata en la base de datos.GET /api/documents con filtros por categoría, fecha y palabras clave.GET /api/documents/download/:id que valide los permisos del usuario antes de iniciar la descarga.Incluye manejo de errores y validación de tipos de archivo permitidos (.pdf, .docx).
+
+agente 3
+
+Actúa como un Diseñador UX/UI y Desarrollador Frontend Senior usando React.js y Tailwind CSS. Crea el componente principal de la biblioteca jurídica. La interfaz debe incluir:Un panel lateral (sidebar) con la lista de categorías y contadores de documentos.Una barra de búsqueda central con filtros avanzados.Una cuadrícula o tabla que muestre los documentos con botones claros para 'Descargar' y 'Ver detalles'.Un botón flotante o zona de 'Drag and Drop' para cargar nuevos archivos con una barra de progreso.Entrega el código de React limpio, modular y con diseño responsivo.
+
+agente 4 
+
+Actúa como un Experto en Ciberseguridad y Cumplimiento Normativo (RGPD / Privacidad). Analiza el flujo de carga, almacenamiento y descarga de documentos jurídicos diseñado previamente. Proporcióname una lista de verificación (checklist) de seguridad y los fragmentos de código necesarios para implementar:Encriptación de archivos en reposo (AES-256).Ofuscación de las rutas de descarga para evitar acceso directo a los archivos.Registro de auditoría (logs) para saber exactamente qué usuario cargó o descargó qué documento y cuándo.
