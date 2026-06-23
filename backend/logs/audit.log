@@ -1,0 +1,7 @@
+[2026-06-22T21:45:17.923Z] IP: ::1 | USER: GUEST (N/A) | ACTION: INVALID_TOKEN_ACCESS | DOC_ID: N/A | STATUS: FAILED | DETAILS: Token inválido o expirado. Error: jwt malformed
+[2026-06-22T21:45:18.042Z] IP: ::1 | USER: GUEST (N/A) | ACTION: INVALID_TOKEN_ACCESS | DOC_ID: N/A | STATUS: FAILED | DETAILS: Token inválido o expirado. Error: jwt malformed
+[2026-06-22T21:45:34.010Z] IP: ::1 | USER: GUEST (N/A) | ACTION: INVALID_TOKEN_ACCESS | DOC_ID: N/A | STATUS: FAILED | DETAILS: Token inválido o expirado. Error: jwt malformed
+[2026-06-22T21:46:08.351Z] IP: ::1 | USER: GUEST (N/A) | ACTION: INVALID_TOKEN_ACCESS | DOC_ID: N/A | STATUS: FAILED | DETAILS: Token inválido o expirado. Error: jwt malformed
+[2026-06-22T21:46:29.699Z] IP: ::1 | USER: GUEST (N/A) | ACTION: INVALID_TOKEN_ACCESS | DOC_ID: N/A | STATUS: FAILED | DETAILS: Token inválido o expirado. Error: jwt malformed
+[2026-06-22T21:46:29.742Z] IP: ::1 | USER: GUEST (N/A) | ACTION: INVALID_TOKEN_ACCESS | DOC_ID: N/A | STATUS: FAILED | DETAILS: Token inválido o expirado. Error: jwt malformed
+[2026-06-22T21:46:35.368Z] IP: ::1 | USER: GUEST (N/A) | ACTION: INVALID_TOKEN_ACCESS | DOC_ID: N/A | STATUS: FAILED | DETAILS: Token inválido o expirado. Error: jwt malformed

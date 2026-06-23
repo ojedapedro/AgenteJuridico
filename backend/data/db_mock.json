@@ -1,0 +1,75 @@
+{
+  "users": [
+    {
+      "id": "11111111-1111-1111-1111-111111111111",
+      "username": "admin",
+      "email": "admin@legal.com",
+      "password_hash": "$2a$10$pqnnx9nQCa6Z4dl02MDlZeILq5YhnhmvpD.zf9FyszyRGKzd.lwbi",
+      "role": "administrador",
+      "status": "active"
+    },
+    {
+      "id": "22222222-2222-2222-2222-222222222222",
+      "username": "abogado1",
+      "email": "abogado@legal.com",
+      "password_hash": "$2a$10$MYj0H9q7j3HaAEYoKgiy5OMJ6Vg09AMHSDK0wZKMuftGq7qFVuPGa",
+      "role": "abogado",
+      "status": "active"
+    },
+    {
+      "id": "33333333-3333-3333-3333-333333333333",
+      "username": "cliente1",
+      "email": "cliente@legal.com",
+      "password_hash": "$2a$10$Q6O3BFOk9WPdFcZtLJ/kS.GJjyxufOwa/yE3Ch7.RmusIqnnn9GPK",
+      "role": "cliente",
+      "status": "active"
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "Leyes",
+      "count": 0
+    },
+    {
+      "id": 2,
+      "name": "Sentencias",
+      "count": 0
+    },
+    {
+      "id": 3,
+      "name": "Contratos",
+      "count": 0
+    },
+    {
+      "id": 4,
+      "name": "Jurisprudencia",
+      "count": 0
+    },
+    {
+      "id": 5,
+      "name": "Decretos",
+      "count": 0
+    }
+  ],
+  "documents": [],
+  "tags": [
+    {
+      "id": 1,
+      "name": "Tributario"
+    },
+    {
+      "id": 2,
+      "name": "Laboral"
+    },
+    {
+      "id": 3,
+      "name": "Penal"
+    },
+    {
+      "id": 4,
+      "name": "Civil"
+    }
+  ],
+  "document_tags": []
+}
