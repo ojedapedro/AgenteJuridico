@@ -104,7 +104,8 @@ export default function LegalLibrary({ user, onLogout }) {
         category_name: 'Leyes',
         tags: ['Protección de Datos', 'RGPD', 'Derecho Digital'],
         uploader_name: 'admin',
-        file_hash: '2f9a764d...3e22'
+        file_hash: '2f9a764d...3e22',
+        content: `EXPOSICIÓN DE MOTIVOS:\nLa presente Ley Orgánica tiene por objeto garantizar y proteger, en lo que concierne al tratamiento de los datos personales, las libertades públicas y los derechos fundamentales de las personas físicas.\n\nCLÁUSULA PRIMERA.- OBJETO Y ÁMBITO DE APLICACIÓN.\n1.1. La presente ley será de aplicación a cualquier tratamiento de datos personales registrado en soporte físico o digital.\n1.2. Quedan excluidos los ficheros mantenidos por personas físicas en el ejercicio de actividades exclusivamente personales o domésticas.\n\nCLÁUSULA SEGUNDA.- PRINCIPIOS DE PROTECCIÓN DE DATOS.\n2.1. Principio de Licitud: Los datos personales solo se recogerán para fines determinados, explícitos y legítimos.\n2.2. Consentimiento expreso: El tratamiento requerirá el consentimiento inequívoco del interesado, otorgado mediante una clara acción afirmativa.\n\nCLÁUSULA TERCERA.- DERECHOS DE LOS CIUDADANOS (ARCO-POL).\n3.1. Todo interesado tiene derecho a solicitar al responsable del tratamiento el acceso, rectificación, supresión o limitación de sus datos.\n3.2. Penalización por incumplimiento: Las infracciones muy graves serán sancionadas con multas de hasta el 4% del volumen de negocio anual o 20.000.000 EUR.`
       },
       {
         id: 'mock-2',
@@ -115,7 +116,8 @@ export default function LegalLibrary({ user, onLogout }) {
         category_name: 'Sentencias',
         tags: ['Civil', 'Bancario', 'Consumidores'],
         uploader_name: 'abogado1',
-        file_hash: '82cde99a...614f'
+        file_hash: '82cde99a...614f',
+        content: `ENCABEZAMIENTO:\nEn la Villa de Madrid, a 1 de junio de 2026. Visto por la Sala Primera del Tribunal Supremo el recurso de casación interpuesto contra la sentencia dictada por la Audiencia Provincial.\n\nANTECEDENTES DE HECHO:\nPRIMERO.- La parte demandante interpuso demanda solicitando la nulidad de la condición general de contratación relativa al tipo mínimo de interés (cláusula suelo).\nSEGUNDO.- La entidad bancaria se opuso alegando que la cláusula superaba los controles de incorporación y transparencia.\n\nFUNDAMENTOS DE DERECHO:\nCLÁUSULA PRIMERA.- CONTROL DE TRANSPARENCIA MATERIAL.\nEl consumidor debe estar en condiciones de comprender las consecuencias económicas y jurídicas de la cláusula. La falta de información comparativa determina la abusividad.\n\nFALLO / RESOLUCIÓN:\n1. Declaramos la NULIDAD absoluta por abusiva de la cláusula limitativa de tipos de interés.\n2. Condenamos a la entidad financiera a la restitución íntegra de las cantidades indebidamente cobradas con intereses legales, bajo apercibimiento de ejecución forzosa.`
       },
       {
         id: 'mock-3',
@@ -126,7 +128,8 @@ export default function LegalLibrary({ user, onLogout }) {
         category_name: 'Contratos',
         tags: ['Civil', 'Mercantil', 'Arrendamientos'],
         uploader_name: 'admin',
-        file_hash: 'ee74bc99...77df'
+        file_hash: 'ee74bc99...77df',
+        content: `REUNIDOS:\nDe una parte, EL ARRENDADOR, provisto de NIF competente, y de otra parte, EL ARRENDATARIO, actuando en representación de la mercantil comercial.\n\nMANIFIESTAN:\nQue ambas partes tienen capacidad legal suficiente para obligarse y, reconociéndose mutuamente,\n\nACUERDAN:\nCLÁUSULA PRIMERA.- OBJETO DEL CONTRATO.\nEL ARRENDADOR cede en arrendamiento el local comercial sito en la Calle Principal nº 45, obligándose EL ARRENDATARIO a destinarlo exclusivamente a actividad comercial.\n\nCLÁUSULA SEGUNDA.- DURACIÓN Y RENTA.\n2.1. El plazo de duración será de 5 años improrrogables a contar desde el 1 de julio de 2026.\n2.2. La renta mensual pactada es de 2.500 EUR, pagaderos del 1 al 5 de cada mes mediante transferencia bancaria.\n\nCLÁUSULA TERCERA.- FIANZA LEGAL E INDEMNIZACIÓN.\nEL ARRENDATARIO entrega en este acto la cantidad de 5.000 EUR en concepto de fianza legal equivalente a dos mensualidades. El desistimiento anticipado conllevará una penalización de una mensualidad por año restado.`
       },
       {
         id: 'mock-4',
@@ -137,7 +140,8 @@ export default function LegalLibrary({ user, onLogout }) {
         category_name: 'Decretos',
         tags: ['Derecho Digital', 'Administrativo'],
         uploader_name: 'admin',
-        file_hash: 'aa9923bb...cc11'
+        file_hash: 'aa9923bb...cc11',
+        content: `EXPOSICIÓN DE MOTIVOS:\nLa necesidad de garantizar el derecho a la tutela judicial efectiva requiere dotar a los juzgados y tribunales de infraestructuras seguras de interoperabilidad digital.\n\nCLÁUSULA PRIMERA.- EXPEDIENTE JUDICIAL ELECTRÓNICO.\nSe establece la obligatoriedad de tramitar el expediente judicial en formato digital debidamente firmado con certificado electrónico reconocido.\n\nCLÁUSULA SEGUNDA.- VISTAS Y DECLARACIONES TELEMÁTICAS.\n2.1. El tribunal competente podrá autorizar la celebración de juicios mediante videoconferencia segura.\n2.2. Se garantizará la confidencialidad de las comunicaciones entre LAS PARTES y sus defensores legales.`
       },
       {
         id: 'mock-5',
@@ -148,7 +152,8 @@ export default function LegalLibrary({ user, onLogout }) {
         category_name: 'Jurisprudencia',
         tags: ['Laboral', 'Despidos'],
         uploader_name: 'abogado1',
-        file_hash: '992a77ff...3d4f'
+        file_hash: '992a77ff...3d4f',
+        content: `DOCTRINA JURISPRUDENCIAL UNIFICADA:\nLa Sala Social del Tribunal Supremo unifica criterios en torno a la gravedad de las transgresiones de la buena fe contractual por parte de EL TRABAJADOR.\n\nCLÁUSULA PRIMERA.- REQUISITOS FORMALES DE LA CARTA DE DESPIDO.\nLa notificación escrita debe describir con precisión las fechas y hechos imputados. La vaguedad expositiva ocasiona la indefensión de EL TRABAJADOR y determina la improcedencia.\n\nCLÁUSULA SEGUNDA.- CÁLCULO DE LA INDEMNIZACIÓN LABORAL.\n2.1. Declarado improcedente el despido, LA EMPRESA deberá optar entre la readmisión o el abono de una indemnización de 33 días de salario por año de servicio hasta un máximo de 24 mensualidades.\n2.2. El plazo de caducidad para impugnar la decisión empresarial ante la jurisdicción social será de 20 días hábiles.`
       }
     ];
 

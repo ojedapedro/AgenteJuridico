@@ -570,6 +570,21 @@ app.get('/api/files/secure-download', async (req, res) => {
     const filePath = path.join(UPLOADS_DIR, fileName);
 
     if (!fs.existsSync(filePath)) {
+      if (document.content) {
+        res.setHeader('Content-Type', 'text/plain; charset=utf-8');
+        res.setHeader('Content-Disposition', `attachment; filename="${encodeURIComponent(document.title)}.txt"`);
+        res.send(document.content);
+        logAudit({
+          userId,
+          role: 'DECODED_FROM_TOKEN',
+          action: 'DOWNLOAD',
+          documentId,
+          status: 'SUCCESS',
+          ip: req.ip || req.socket?.remoteAddress || '127.0.0.1',
+          details: 'Contenido legal desencriptado enviado desde memoria.'
+        });
+        return;
+      }
       return res.status(404).json({ error: 'El archivo físico no existe en el almacenamiento.' });
     }
 

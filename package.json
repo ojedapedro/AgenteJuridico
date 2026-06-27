@@ -14,5 +14,13 @@
   },
   "devDependencies": {
     "concurrently": "^8.2.2"
+  },
+  "dependencies": {
+    "@types/pg": "^8.20.0",
+    "drizzle-kit": "^0.31.10",
+    "drizzle-orm": "^0.45.2",
+    "firebase": "^12.15.0",
+    "firebase-admin": "^14.1.0",
+    "pg": "^8.22.0"
   }
 }

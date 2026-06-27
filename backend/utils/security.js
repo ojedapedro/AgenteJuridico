@@ -98,7 +98,7 @@ function logAudit({ userId, role, action, documentId, status, ip, details = '' }
   });
 
   // Imprimir en consola de desarrollo
-  console.log(`[AUDIT] ${action} - User: ${userId || 'GUEST'} - Doc: ${documentId || 'N/A'} - Status: ${status}`);
+  console.log(`[AUDIT] ${action} - User: ${userId || 'GUEST'} - Doc: ${documentId || 'N/A'} - Result: ${status}`);
 }
 
 module.exports = {

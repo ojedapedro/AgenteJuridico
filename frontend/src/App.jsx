@@ -114,7 +114,7 @@ export default function App() {
     }
   };
 
-  const handleQuickLogin = (demoRole) => {
+  const handleQuickLogin = async (demoRole) => {
     let mockUser = {};
     let emailStr = '';
     let passStr = '';
@@ -133,14 +133,33 @@ export default function App() {
       passStr = 'cliente123';
     }
 
+    setEmail(emailStr);
+    setPassword(passStr);
+    setLoading(true);
+
+    try {
+      const res = await fetch('/api/auth/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: emailStr, password: passStr })
+      });
+      if (res.ok) {
+        const data = await res.json();
+        localStorage.setItem('jwt_token', data.token);
+        localStorage.setItem('logged_user', JSON.stringify(data.user));
+        setUser(data.user);
+        showNotification('success', `Acceso rápido exitoso como ${data.user.username} (${data.user.role})`);
+        return;
+      }
+    } catch (e) {
+      console.warn('Backend no disponible para quick login. Usando simulación local.');
+    } finally {
+      setLoading(false);
+    }
+
     localStorage.setItem('jwt_token', `fake-jwt-token-for-${demoRole}`);
     localStorage.setItem('logged_user', JSON.stringify(mockUser));
     setUser(mockUser);
-    
-    // Rellenar campos para fines visuales
-    setEmail(emailStr);
-    setPassword(passStr);
-
     showNotification('success', `Acceso rápido exitoso como ${mockUser.username} (${mockUser.role})`);
   };
 
