@@ -115,27 +115,35 @@ if (!fs.existsSync(mockDbPath)) {
   fs.writeFileSync(mockDbPath, JSON.stringify(initialMockData, null, 2));
 }
 
-// Intentar conexión a PostgreSQL si hay variables configuradas
-if (process.env.DB_HOST) {
-  pgPool = new Pool({
-    host: process.env.DB_HOST,
-    port: process.env.DB_PORT || 5432,
-    database: process.env.DB_NAME,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-    ssl: process.env.DB_SSL === 'true' ? { rejectUnauthorized: false } : false
-  });
+// Intentar conexión a PostgreSQL si hay variables configuradas o DATABASE_URL
+if (process.env.DATABASE_URL || process.env.DB_HOST) {
+  const poolConfig = process.env.DATABASE_URL
+    ? {
+        connectionString: process.env.DATABASE_URL,
+        ssl: process.env.DB_SSL === 'true' ? { rejectUnauthorized: false } : false
+      }
+    : {
+        host: process.env.DB_HOST,
+        port: process.env.DB_PORT || 5432,
+        database: process.env.DB_NAME,
+        user: process.env.DB_USER,
+        password: process.env.DB_PASSWORD,
+        ssl: process.env.DB_SSL === 'true' ? { rejectUnauthorized: false } : false
+      };
+
+  pgPool = new Pool(poolConfig);
 
   pgPool.query('SELECT NOW()', (err, res) => {
     if (err) {
-      console.warn('⚠️ No se pudo conectar a PostgreSQL. Se usará la Base de Datos Mock en JSON.');
+      console.warn('⚠️ No se pudo conectar a PostgreSQL/Supabase. Se usará la Base de Datos Mock en JSON.');
+      console.error('Detalles del error:', err.message);
       useMockDb = true;
     } else {
-      console.log('✅ Conectado exitosamente a PostgreSQL:', res.rows[0].now);
+      console.log('✅ Conectado exitosamente a PostgreSQL/Supabase:', res.rows[0].now);
     }
   });
 } else {
-  console.log('ℹ️ Variable DB_HOST no configurada. Usando base de datos mock local (JSON).');
+  console.log('ℹ️ Variables de base de datos no configuradas (DATABASE_URL o DB_HOST). Usando base de datos mock local (JSON).');
   useMockDb = true;
 }
 
