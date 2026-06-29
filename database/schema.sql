@@ -1,5 +1,13 @@
 -- Script SQL para base de datos PostgreSQL: Biblioteca de Documentos Jurídicos
 
+-- Limpiar la base de datos si ya existen las tablas o tipos
+DROP TABLE IF EXISTS document_tags CASCADE;
+DROP TABLE IF EXISTS documents CASCADE;
+DROP TABLE IF EXISTS tags CASCADE;
+DROP TABLE IF EXISTS categories CASCADE;
+DROP TABLE IF EXISTS users CASCADE;
+DROP TYPE IF EXISTS user_role CASCADE;
+
 -- Habilitar extensión para UUIDs (opcional, pero buena práctica)
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 

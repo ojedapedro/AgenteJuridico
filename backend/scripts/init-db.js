@@ -43,9 +43,27 @@ async function initDb() {
     const sql = fs.readFileSync(schemaPath, 'utf8');
 
     console.log('⚡ Ejecutando sentencias SQL en la base de datos...');
-    
-    // Ejecutamos todo el script SQL
-    await client.query(sql);
+
+    // Ejecutar cada sentencia por separado para hacer la inicialización idempotente
+    // Dividir por ';' y limpiar entradas; usar guardas para evitar undefined
+    const statements = sql
+      .split(';')
+      .map(s => (typeof s === 'string' ? s.trim() : ''))
+      .filter(s => s.length);
+
+    for (const stmt of statements) {
+      try {
+        await client.query(stmt);
+      } catch (err) {
+        const msg = err && err.message ? err.message : String(err);
+        // Ignorar errores de objetos que ya existen para permitir reruns
+        if (/already exists|duplicate key|relation .* already exists/i.test(msg)) {
+          console.warn('⚠️ Advertencia (ignorando):', msg);
+        } else {
+          throw err;
+        }
+      }
+    }
     
     console.log('🎉 ¡Base de datos inicializada con éxito!');
   } catch (error) {
